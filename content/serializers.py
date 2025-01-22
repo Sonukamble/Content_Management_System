@@ -8,6 +8,9 @@ class ContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Content
         fields = ['id', 'title', 'body', 'summary', 'categories', 'author']
+        extra_kwargs = {
+            'author': {'required': False},  # Make 'author' field not required here
+        }
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
