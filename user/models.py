@@ -9,6 +9,7 @@ from .manager import CustomUserManager
 
 class User(AbstractUser):
     # Adding unique email for login
+    username = None 
     email = models.EmailField(unique=True)
     full_name = models.CharField(max_length=255)
     # Additional fields as per requirements
@@ -43,3 +44,4 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+

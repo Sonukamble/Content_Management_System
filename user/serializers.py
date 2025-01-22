@@ -24,6 +24,7 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         password = validated_data.pop('password')
         user = super().create(validated_data)
+        user.username = user.email
         if not user.username:
             user.username = user.email
         user.set_password(password)
